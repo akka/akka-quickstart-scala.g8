@@ -10,13 +10,13 @@ class PingActor extends Actor with ActorLogging {
 
   def receive = {
   	case Initialize => 
-	  log.info(s"In PingActor - starting ping-pong")
+	    log.info("In PingActor - starting ping-pong")
   	  pongActor ! PingMessage("ping")	
   	case PongActor.PongMessage(text) =>
-  	  log.info(s"In PingActor - received message: ${text}")
+  	  log.info("In PingActor - received message: {}", text)
   	  counter += 1
   	  if (counter == 3) context.system.shutdown()
-  	  else sender ! PingMessage("ping")
+  	  else sender() ! PingMessage("ping")
   }	
 }
 
