@@ -1,70 +1,85 @@
-Akka Quickstart with Scala
-==========================
+# Akka Quickstart with Scala
+ 
+Akka is a toolkit and runtime for building highly concurrent, distributed, and fault-tolerant event-driven applications on the JVM. Akka can be used with both Java and Scala.
+This guide introduces Akka by describing the Scala version of the Hello World example. If you prefer to use Akka with Java, switch to the [Akka Quickstart with Java guide](http://developer.lightbend.com/start/?group=akka&project=akka-java-seed). 
 
-[Akka](http://akka.io) is a toolkit and runtime for building highly concurrent,
-distributed, and fault-tolerant event-driven applications on the JVM. Akka can be used with both Java
-and Scala.
+Actors are the unit of execution in Akka. The Actor model as an abstraction that makes it easier to write correct concurrent, parallel and distributed systems. The Hello World example illustrates Akka basics. Within 30 minutes, you should be able to download and run the example and use this guide to understand how the example is constructed. This will get your feet wet, and hopefully inspire you to dive deeper into the wonderful sea of Akka!
 
-This tutorial will guide you through the some basic but fundamental Akka building blocks.
+## Downloading the example 
 
-The sample project for this tutorial is called `akka-scala-seed` and can be found in [Get started with Lightbend technologies](http://dev.lightbend.com/start/?group=akka&project=akka-scala-seed). Unzip the zip file and, if wanted, rename the directory to your preference:
+The Hello World example for Scala is a zipped projec that includes a distribution of sbt (build tool). You can run it on Linux, MacOS, or Windows. The only prerequisite is Java 8.
 
-OSX
-: ```
-$ unzip akka-scala-seed.zip
-$ cd akka-scala-seed
-Note: If you unzip with Archiver instead of via the Terminal you also have to make the sbt files executable:
-$ chmod u+x ./sbt
-$ chmod u+x ./sbt-dist/bin/sbt
+Download and unzip the example:
+
+1. Download the zip file from [Lightbend Tech Hub](http://dev.lightbend.com/start/?group=akka&project=akka-scala-seed) by clicking `CREATE A PROJECT FOR ME`. 
+1. Extract the zip file to a convenient location: 
+  - On Linux and OSX systems, open a terminal and use the command `unzip akka-scala-seed.zip`. Note: On OSX, if you unzip using Archiver, you also have to make the sbt files executable:
 ```
-
-Linux
-: ```
-$ unzip akka-scala-seed.zip
-$ cd akka-scala-seed
+ $ chmod u+x ./sbt
+ $ chmod u+x ./sbt-dist/bin/sbt
 ```
+  - On Windows, use a tool such as File Explorer to extract the project. 
 
-Windows
-: ```
-Unzip the zip file and then open a Command Line window and change directory into the unzipped project:
-$ cd akka-scala-seed
+## Running the example
+
+To run Hello World:
+
+1. In a console, change directories to the top level of the unzipped project.
+ 
+    For example, if you extracted the project to your root directory, from the root directory, enter:
+    `cd akka-scala-seed`
+
+1. Enter `./sbt` on OSX/Linux or `sbt-dist/bin/sbt.bat` on Windows to start sbt.
+ 
+    sbt downloads project dependencies. The `>` prompt indicates sbt has started in interactive mode.
+
+1. At the sbt prompt, enter `run`.
+ 
+    sbt builds the project and prompts for a class to run.
+
+The output should look _something_ like this (scroll all the way to the right to see the Actor output):
+ 
 ```
+[info] Compiling 1 Scala source and 1 Java source to /Users/x/akka-quickstart-scala/target/scala-2.12/classes...
+[info] Running com.lightbend.akka.sample.AkkaQuickstart
+>>> Press ENTER to exit <<<
+[INFO] [05/09/2017 09:57:15.979] [helloAkka-akka.actor.default-dispatcher-2] [akka://helloAkka/user/printerActor] Greeting received (from Actor[akka://helloAkka/user/howdyGreeter#-1854995773]): Howdy, Akka
+[INFO] [05/09/2017 09:57:15.980] [helloAkka-akka.actor.default-dispatcher-2] [akka://helloAkka/user/printerActor] Greeting received (from Actor[akka://helloAkka/user/helloGreeter#-1072877049]): Hello, Scala
+[INFO] [05/09/2017 09:57:15.980] [helloAkka-akka.actor.default-dispatcher-2] [akka://helloAkka/user/printerActor] Greeting received (from Actor[akka://helloAkka/user/goodDayGreeter#1972065097]): Good day, Play
+[INFO] [05/09/2017 09:57:15.980] [helloAkka-akka.actor.default-dispatcher-2] [akka://helloAkka/user/printerActor] Greeting received (from Actor[akka://helloAkka/user/howdyGreeter#-1854995773]): Howdy, Lightbend
+[success] Total time: 5 s, completed May 9, 2017 9:52:34 AM
+```
+   
+Congratulations, you just ran your first Akka app. Now take a look at what happened under the covers. 
 
-If you prefer to use Akka with Java you can find its tutorial [here](http://developer.lightbend.com/start/?group=akka&project=akka-java-seed).
+## What Hello World does
 
-## The Sample Application
-
-The code in this example is intentionally kept simple. This is a getting started tutorial for someone who has no,
-or very little, previous knowledge about Akka. Since this tutorial is using [Scala](http://scala-lang.org/) it is good if the reader has a basic understanding thereof.
-
-The aim of this tutorial is to show the interested reader some core concepts of Akka that will not take more than approximately 30 minutes. It will get our feet wet and, hopefully, inspire us to dive deeper into the wonderful sea of Akka!
-
-### Design
-
-We will create a main class from which we create an `akka.actor.ActorSystem` (think of this as a container in which your Actors run). Once we have created an `ActorSystem` we create a couple of Actors; 3 instances of a `Greeter` Actor and 1 instance of a `Printer` Actor. We will thereafter send messages to the `Greeter` Actor instances which will keep these messages internally. Finally, we send instruction messages to our `Greeter` Actors that will trigger them to send messages to the `Printer` Actor for output.
-
-Let's take a look at the architecture. As said above, we will run everything from the main class. The main class will create and interact with the Actors:
+As you saw in the console output, the example outputs several greetings. Let’s take a look what happens at runtime.
 
 ![Architecture](images/hello-akka-architecture.png)
 
-Once we have created the Actors we will send messages to them:
+First, the `main` class creates an `akka.actor.ActorSystem`, a container in which Actors run. Next, it creates three instances of a Greeter Actor and one instance of a Printer Actor. 
+
+The example then sends messages to the Greeter Actor instances, which store them internally. Finally, instruction messages to the Greeter Actors trigger them to send messages to the Printer Actor, which outputs them to the console:
 
 ![Messages](images/hello-akka-messages.png)
 
-Don't worry if this doesn't make complete sense at this point! This tutorial will describe all the core concepts you need to build an Akka application.
+Akka's use of Actors and asynchronous messaging result in a range of benefits. Consider a few.
 
-## The 3 Minute Exploration
+## Benefits of using the Actor Model
 
-If you don't want to go through all the steps of this tutorial you can jump straight @ref:[full example](full-example.md) to see the source code and then to @ref:[running the application](running-the-application.md). This way you can look at the code and the output and get a very brief introduction to Akka. It is, however, recommended that you follow this tutorial step-by-step to gain a good understanding of the core concepts of Akka.
+The following characteristics of Akka allow you to solve difficult concurrency and scalability challenges in an intuitive way: 
 
-If you are interested in an more in-depth understanding of the core concepts we recommend the [Getting Started Guide](http://doc.akka.io/docs/akka/2.5/scala.html).
-
-Next, let's dive into the tutorial and its individual building blocks.
+* Event-driven model &#8212; Actors perform work in response to messages. Communication between Actors is asynchronous, allowing Actors to send messages and continue their own work without blocking to wait for a reply.
+* Strong isolation principles &#8212; Unlike regular objects in Scala, an Actor does not have a public API in terms of methods that you can invoke. Instead, its public API is defined through messages that the actor handles. This prevents any sharing of state between Actors; the only way to observe another actor's state is by sending it a message asking for it.
+* Location transparency &#8212; The system constructs Actors from a factory and returns references to the instances. Because location doesn't matter, Actor instances can start, stop, move, and restart to scale up and down as well as recover from unexpected failures. 
+* Lightweight &#8212; Each instance consumes only a few hundred bytes, which realistically allows millions of concurrent Actors to exist in a single application.
+ 
+Let's look at some best practices for working with Actors and messages in the context of the Hello World example.
 
 @@@index
 
-* [Define the Messages](define-messages.md)
-* [Define the Actors](define-actors.md)
+* [Define the Actors and messages](define-actors.md)
 * [Create the Actors](create-actors.md)
 * [Communicate with Actors](communicate-with-actors.md)
 * [The Main Class](main-class.md)

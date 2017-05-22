@@ -1,8 +1,8 @@
-The Main Class
---------------
-
-The main class is where we, in this example, create and control the actors. As previously explained we need an `ActorSystem` in which we can create the Actor instances. To create actors we use the `actorOf` method available in the `ActorSystem`. Once we have created the Actors the next thing we do is to send messages to them.
-
+## The Main Class
+ 
+The `Main` class in Hello World creates and controls the actors. Notice the use of an `ActorSystem` as a container and the `actorOf` method to create the Actors. Finally, the class creates the messages to send to the Actors.
+ 
 @@snip [AkkaQuickstart.scala]($g8src$/scala/com/lightbend/akka/sample/AkkaQuickstart.scala) { #main-class }
+ 
+Similarly, let's look again at the full source code that defines the Actors and the Messages they accept.
 
-We will look and dissect the output when running this main class in the @ref:[Running the Application](running-the-application.md) section. Before we get there it is time to look at the complete source code of this sample application.

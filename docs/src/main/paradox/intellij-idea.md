@@ -1,5 +1,4 @@
-IntelliJ IDEA
--------------
+## IntelliJ IDEA
 
 [IntelliJ](https://www.jetbrains.com/idea/) from JetBrains is one of the leading IDEs in the Java/Scala community and it has excellent support for Akka. This section will guide you through setting up, testing and running the sample project.
 
