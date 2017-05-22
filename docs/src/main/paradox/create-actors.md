@@ -2,7 +2,7 @@
  
 So far we have looked at the definitions of Actors and their messages. Now let's dive a bit deeper into the power of location transparency and see how to create Actor instances.
  
-### The Power of Location Transparency
+### The power of location transparency
  
 In Akka you *can't* create an instance of an Actor using the `new` keyword. Instead, you create Actor instances using a factory. The factory does not return an actor instance, but a reference, `akka.actor.ActorRef`, that points to the actor instance. This level of indirection adds a lot of power and flexibility in a distributed system. 
  

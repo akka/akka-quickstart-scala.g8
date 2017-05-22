@@ -1,4 +1,4 @@
-## Full Example Code
+## Full example code
  
 Take a look at the definition of Actors, their companion objects, and Messages:
  

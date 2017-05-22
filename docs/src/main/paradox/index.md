@@ -7,7 +7,7 @@ Actors are the unit of execution in Akka. The Actor model as an abstraction that
 
 ## Downloading the example 
 
-The Hello World example for Scala is a zipped projec that includes a distribution of sbt (build tool). You can run it on Linux, MacOS, or Windows. The only prerequisite is Java 8.
+The Hello World example for Scala is a zipped project that includes a distribution of sbt (build tool). You can run it on Linux, MacOS, or Windows. The only prerequisite is Java 8.
 
 Download and unzip the example:
 
@@ -35,7 +35,7 @@ To run Hello World:
 
 1. At the sbt prompt, enter `run`.
  
-    sbt builds the project and prompts for a class to run.
+    sbt builds the project and runs Hello World
 
 The output should look _something_ like this (scroll all the way to the right to see the Actor output):
  

@@ -2,7 +2,7 @@
  
 The tests in the Hello World example illustrates use of the [ScalaTest](http://www.scalatest.org/) framework. The test coverage is not complete. It simply shows how easy it is to test actor code and provides some basic concepts. You could add to it as an exercise to increase your own knowledge.  
 
-### Test Class Definition
+### Test class definition
   
 Let's start by looking at the test class definition in the `AkkaQuickstartSpec.scala` source file:
  
@@ -12,7 +12,7 @@ The test class extends `akka.test.TestKit`, which is a module for integration te
  
 @@snip [AkkaQuickstartSpec.scala]($g8srctest$/scala/com/lightbend/akka/sample/AkkaQuickstartSpec.scala) { #specification-example }
  
-### Test Methods
+### Test methods
 
 Now that we know some of the basic concepts, let's look at the implemented test methods.
  
@@ -22,7 +22,7 @@ Integration testing can help us ensure that Actors are behaving asynchronously. 
  
 Once we have a reference to  `TestProbe` we pass it to `Greeter` as part of the constructor arguments. We thereafter send two messages to `Greeter`; one to set the greeting person to greet and another to trigger the sending of a `Greeting`. The `expectMsg` method on the `TestProbe` verifies whether the message got sent. 
  
-### Full Test Code
+### Full test code
  
 And, here is the complete code:
  

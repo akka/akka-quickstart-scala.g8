@@ -1,4 +1,4 @@
-## Asynchronous Communication
+## Asynchronous communication
 
 Actors are reactive and message driven. An Actor doesn't do anything until it receives a message. Actors communicate using asynchronous messages. This ensures that the sender does not stick around waiting for their message to be processed by the recipient. Instead, the sender puts the message in the recipient's mailbox and is free to do other work. The Actor's mailbox is essentially a message queue with ordering semantics. The order of multiple messages sent from the same Actor is preserved, but can be interleaved with messages sent by another Actor.
  

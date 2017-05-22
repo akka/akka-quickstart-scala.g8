@@ -1,4 +1,4 @@
-## Running the Application
+## Running the application
  
 You can run the Hello World application from the command line or an IDE. The final topic in this guide describes how to run it from @ref:[IntelliJ IDEA](intellij-idea.md). But, before we run the application again, let's take a quick look at the build tool: [sbt](http://www.scala-sbt.org). 
  
