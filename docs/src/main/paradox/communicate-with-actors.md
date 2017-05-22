@@ -1,17 +1,17 @@
-Communicate with Actors
------------------------
+## Asynchronous communication
 
-All communication with Actors is done through asynchronous message passing. This is what makes Actors reactive and message driven. An Actor doesn't do anything unless it's been told to do something, and we tell it to do something by sending the message. Sending a message asynchronously means that the sender does not stick around waiting for the message to be processed by the recipient actor. Instead, the Actor hands the message off by putting it on the recipient's mailbox and is then free to do something more important than waiting for the recipient to react on the message. The Actor's mailbox is essentially a
-message queue and has ordering semantics, this guarantees that the ordering of multiple messages sent from the same Actor is preserved, while they can be interleaved with the messages sent by another actor.
+Actors are reactive and message driven. An Actor doesn't do anything until it receives a message. Actors communicate using asynchronous messages. This ensures that the sender does not stick around waiting for their message to be processed by the recipient. Instead, the sender puts the message in the recipient's mailbox and is free to do other work. The Actor's mailbox is essentially a message queue with ordering semantics. The order of multiple messages sent from the same Actor is preserved, but can be interleaved with messages sent by another Actor.
+ 
+You might be wondering what the Actor is doing when it is not processing messages, i.e. doing actual work? It is in a suspended state in which it does not consume any resources apart from memory. Again, showing the lightweight, efficient nature of Actors. 
 
-You might be wondering what the Actor is doing when it is not processing messages, i.e. doing actual work? It is in a suspended state in which it does not consume any resources apart from memory.
+### Sending messages to an Actor
 
-You tell an Actor to do something by passing a message into the `!` (bang) method on the `ActorRef`. This method puts the message on the Actor's mailbox.
-
-In the main class we send messages to the `Greeter` Actor:
-
+To put a message into an Actor's mailbox, use the `!` (bang) method on the `ActorRef`. For example, the main class of Hello World sends messages to the `Greeter` Actor like this:
+ 
 @@snip [AkkaQuickstart.scala]($g8src$/scala/com/lightbend/akka/sample/AkkaQuickstart.scala) { #main-send-messages }
-
+ 
 The `Greeter` Actor also sends a message to the `Printer` Actor:
-
+ 
 @@snip [AkkaQuickstart.scala]($g8src$/scala/com/lightbend/akka/sample/AkkaQuickstart.scala) { #greeter-send-message }
+ 
+We've looked at how to create actors and send messages. Now, let's review by looking at the `Main` class in its entirety. 

@@ -1,8 +1,7 @@
-Full Example Code
------------------
-
-Here below is the complete source code of the sample application:
-
+## Full example code
+ 
+Take a look at the definition of Actors, their companion objects, and Messages:
+ 
 @@snip [AkkaQuickstart.scala]($g8src$/scala/com/lightbend/akka/sample/AkkaQuickstart.scala)
-
-Let's move on to try this out but before we run the application we should ensure that we have some test coverage as the astute developers we are.
+ 
+As another best practice we should provide some test coverage.
