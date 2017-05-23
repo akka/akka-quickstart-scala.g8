@@ -1,7 +1,7 @@
 # Akka Quickstart with Scala
  
 Akka is a toolkit and runtime for building highly concurrent, distributed, and fault-tolerant event-driven applications on the JVM. Akka can be used with both Java and Scala.
-This guide introduces Akka by describing the Scala version of the Hello World example. If you prefer to use Akka with Java, switch to the [Akka Quickstart with Java guide](http://developer.lightbend.com/start/?group=akka&project=akka-java-seed). 
+This guide introduces Akka by describing the Scala version of the Hello World example. If you prefer to use Akka with Java, switch to the [Akka Quickstart with Java guide](http://developer.lightbend.com/guides/akka-quickstart-java/). 
 
 Actors are the unit of execution in Akka. The Actor model as an abstraction that makes it easier to write correct concurrent, parallel and distributed systems. The Hello World example illustrates Akka basics. Within 30 minutes, you should be able to download and run the example and use this guide to understand how the example is constructed. This will get your feet wet, and hopefully inspire you to dive deeper into the wonderful sea of Akka!
 
@@ -11,7 +11,7 @@ The Hello World example for Scala is a zipped project that includes a distributi
 
 Download and unzip the example:
 
-1. Download the zip file from [Lightbend Tech Hub](http://dev.lightbend.com/start/?group=akka&project=akka-scala-seed) by clicking `CREATE A PROJECT FOR ME`. 
+1. Download the zip file from [Lightbend Tech Hub](http://dev.lightbend.com/start/?group=akka&project=akka-quickstart-scala) by clicking `CREATE A PROJECT FOR ME`. 
 1. Extract the zip file to a convenient location: 
   - On Linux and OSX systems, open a terminal and use the command `unzip akka-scala-seed.zip`. Note: On OSX, if you unzip using Archiver, you also have to make the sbt files executable:
 ```
