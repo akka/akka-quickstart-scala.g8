@@ -16,7 +16,7 @@ This build file is very simple. In essence, it creates one project `hello-akka-s
 
 Just as you did earlier, run the application from a console:
 
-1. Enter `./sbt` on OSX/Linux or `sbt-dist/bin/sbt.bat` on Windows 
+1. Enter `./sbt` on OSX/Linux or `sbt.bat` on Windows 
 
    sbt downloads project dependencies. The `>` prompt indicates sbt has started in interactive mode.
 
@@ -37,12 +37,12 @@ Just as you did earlier, run the application from a console:
  
 Remember that the test implementation set the `Printer` Actor to use Akka logger? This provides a lot of extra information. For example, the log output contains includes the time and name of the Actor. Let's focus on the output from the `Printer` Actor for a while:
  
- ```
- ... Howdy, Akka
- ... Hello, Scala
- ... Good day, Play
- ... Howdy, Lightbend
- ```
+```
+... Howdy, Akka
+... Hello, Scala
+... Good day, Play
+... Howdy, Lightbend
+```
  
 This is the result of our code that sends messages to the `Greeter` Actor:
  

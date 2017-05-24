@@ -5,6 +5,8 @@ This guide introduces Akka by describing the Scala version of the Hello World ex
 
 Actors are the unit of execution in Akka. The Actor model as an abstraction that makes it easier to write correct concurrent, parallel and distributed systems. The Hello World example illustrates Akka basics. Within 30 minutes, you should be able to download and run the example and use this guide to understand how the example is constructed. This will get your feet wet, and hopefully inspire you to dive deeper into the wonderful sea of Akka!
 
+After trying this example the comprehensive [Getting Started Guide](http://doc.akka.io/docs/akka/2.5/scala/guide/introduction.html) is a good next step to continue learning more about Akka.
+
 ## Downloading the example 
 
 The Hello World example for Scala is a zipped project that includes a distribution of sbt (build tool). You can run it on Linux, MacOS, or Windows. The only prerequisite is Java 8.
@@ -29,7 +31,7 @@ To run Hello World:
     For example, if you extracted the project to your root directory, from the root directory, enter:
     `cd akka-scala-seed`
 
-1. Enter `./sbt` on OSX/Linux or `sbt-dist/bin/sbt.bat` on Windows to start sbt.
+1. Enter `./sbt` on OSX/Linux or `sbt.bat` on Windows to start sbt.
  
     sbt downloads project dependencies. The `>` prompt indicates sbt has started in interactive mode.
 

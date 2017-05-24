@@ -26,7 +26,7 @@ The following code snippet in the `AkkaQuickstart.scala` file for the companion 
  
 @@snip [AkkaQuickstart.scala]($g8src$/scala/com/lightbend/akka/sample/AkkaQuickstart.scala) { #greeter-messages }
 
-The following snippet defines the 'props' method.
+The following snippet defines the `props` method.
 
 @@snip [AkkaQuickstart.scala]($g8src$/scala/com/lightbend/akka/sample/AkkaQuickstart.scala) { #greeter-companion }
  
