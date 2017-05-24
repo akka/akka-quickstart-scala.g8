@@ -29,7 +29,7 @@ To run Hello World:
     For example, if you extracted the project to your root directory, from the root directory, enter:
     `cd akka-scala-seed`
 
-1. Enter `./sbt` on OSX/Linux or `sbt-dist/bin/sbt.bat` on Windows to start sbt.
+1. Enter `./sbt` on OSX/Linux or `sbt.bat` on Windows to start sbt.
  
     sbt downloads project dependencies. The `>` prompt indicates sbt has started in interactive mode.
 
