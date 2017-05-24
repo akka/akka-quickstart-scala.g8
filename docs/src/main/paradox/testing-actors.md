@@ -8,7 +8,7 @@ Let's start by looking at the test class definition in the `AkkaQuickstartSpec.s
  
 @@snip [AkkaQuickstartSpec.scala]($g8srctest$/scala/com/lightbend/akka/sample/AkkaQuickstartSpec.scala) { #test-classes }
  
-The test class extends `akka.test.TestKit`, which is a module for integration testing of actors and actor systems. This class only uses a fraction of the functionality provided by [TestKit](http://doc.akka.io/docs/akka/2.5/scala/testing.html). The other extended classes are from `ScalaTest`. They provide syntax and functionality for the Hello World test cases. For example,  by extending `FlatSpecLike`, we can write test specifications in the format of "X should Y", like this for example:
+The test class extends `akka.test.TestKit`, which is a module for integration testing of actors and actor systems. This class only uses a fraction of the functionality provided by [TestKit](http://doc.akka.io/docs/akka/current/scala/testing.html). The other extended classes are from `ScalaTest`. They provide syntax and functionality for the Hello World test cases. For example,  by extending `FlatSpecLike`, we can write test specifications in the format of "X should Y", like this for example:
  
 @@snip [AkkaQuickstartSpec.scala]($g8srctest$/scala/com/lightbend/akka/sample/AkkaQuickstartSpec.scala) { #specification-example }
  
@@ -28,6 +28,6 @@ And, here is the complete code:
  
 @@snip [AkkaQuickstartSpec.scala]($g8srctest$/scala/com/lightbend/akka/sample/AkkaQuickstartSpec.scala) { #full-example }
  
-The example code just scratches the surface of the functionality available in `TestKit`. A complete overview can be found [here](http://doc.akka.io/docs/akka/2.5/scala/testing.html).
+The example code just scratches the surface of the functionality available in `TestKit`. A complete overview can be found [here](http://doc.akka.io/docs/akka/current/scala/testing.html).
  
 Now that we've reviewed all of the code. Let's run the example again and look at its output.
