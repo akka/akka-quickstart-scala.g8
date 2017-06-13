@@ -15,7 +15,7 @@ Download and unzip the example:
 
 1. Download the zip file from [Lightbend Tech Hub](http://dev.lightbend.com/start/?group=akka&project=akka-quickstart-scala) by clicking `CREATE A PROJECT FOR ME`. 
 1. Extract the zip file to a convenient location: 
-  - On Linux and OSX systems, open a terminal and use the command `unzip akka-scala-seed.zip`. Note: On OSX, if you unzip using Archiver, you also have to make the sbt files executable:
+  - On Linux and OSX systems, open a terminal and use the command `unzip akka-quickstart-scala.zip`. Note: On OSX, if you unzip using Archiver, you also have to make the sbt files executable:
 ```
  $ chmod u+x ./sbt
  $ chmod u+x ./sbt-dist/bin/sbt
@@ -28,8 +28,8 @@ To run Hello World:
 
 1. In a console, change directories to the top level of the unzipped project.
  
-    For example, if you extracted the project to your root directory, from the root directory, enter:
-    `cd akka-scala-seed`
+    For example, if you used the default project name, akka-quickstart-scala, and extracted the project to your root directory,
+    from the root directory, enter: `cd akka-quickstart-scala`
 
 1. Enter `./sbt` on OSX/Linux or `sbt.bat` on Windows to start sbt.
  
