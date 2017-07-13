@@ -35,7 +35,7 @@ To run Hello World:
  
     sbt downloads project dependencies. The `>` prompt indicates sbt has started in interactive mode.
 
-1. At the sbt prompt, enter `run`.
+1. At the sbt prompt, enter `reStart`.
  
     sbt builds the project and runs Hello World
 
@@ -44,12 +44,10 @@ The output should look _something_ like this (scroll all the way to the right to
 ```
 [info] Compiling 1 Scala source and 1 Java source to /Users/x/akka-quickstart-scala/target/scala-2.12/classes...
 [info] Running com.lightbend.akka.sample.AkkaQuickstart
->>> Press ENTER to exit <<<
 [INFO] [05/09/2017 09:57:15.979] [helloAkka-akka.actor.default-dispatcher-2] [akka://helloAkka/user/printerActor] Greeting received (from Actor[akka://helloAkka/user/howdyGreeter#-1854995773]): Howdy, Akka
 [INFO] [05/09/2017 09:57:15.980] [helloAkka-akka.actor.default-dispatcher-2] [akka://helloAkka/user/printerActor] Greeting received (from Actor[akka://helloAkka/user/helloGreeter#-1072877049]): Hello, Scala
 [INFO] [05/09/2017 09:57:15.980] [helloAkka-akka.actor.default-dispatcher-2] [akka://helloAkka/user/printerActor] Greeting received (from Actor[akka://helloAkka/user/goodDayGreeter#1972065097]): Good day, Play
 [INFO] [05/09/2017 09:57:15.980] [helloAkka-akka.actor.default-dispatcher-2] [akka://helloAkka/user/printerActor] Greeting received (from Actor[akka://helloAkka/user/howdyGreeter#-1854995773]): Howdy, Lightbend
-[success] Total time: 5 s, completed May 9, 2017 9:52:34 AM
 ```
    
 Congratulations, you just ran your first Akka app. Now take a look at what happened under the covers. 

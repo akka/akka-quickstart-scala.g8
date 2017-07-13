@@ -2,7 +2,6 @@
 package com.lightbend.akka.sample
 
 import akka.actor.{ Actor, ActorLogging, ActorRef, ActorSystem, Props }
-import scala.io.StdIn
 
 //#greeter-companion
 //#greeter-messages
@@ -63,39 +62,32 @@ object AkkaQuickstart extends App {
   // Create the 'helloAkka' actor system
   val system: ActorSystem = ActorSystem("helloAkka")
 
-  try {
-    //#create-actors
-    // Create the printer actor
-    val printer: ActorRef = system.actorOf(Printer.props, "printerActor")
+  //#create-actors
+  // Create the printer actor
+  val printer: ActorRef = system.actorOf(Printer.props, "printerActor")
 
-    // Create the 'greeter' actors
-    val howdyGreeter: ActorRef =
-      system.actorOf(Greeter.props("Howdy", printer), "howdyGreeter")
-    val helloGreeter: ActorRef =
-      system.actorOf(Greeter.props("Hello", printer), "helloGreeter")
-    val goodDayGreeter: ActorRef =
-      system.actorOf(Greeter.props("Good day", printer), "goodDayGreeter")
-    //#create-actors
+  // Create the 'greeter' actors
+  val howdyGreeter: ActorRef =
+    system.actorOf(Greeter.props("Howdy", printer), "howdyGreeter")
+  val helloGreeter: ActorRef =
+    system.actorOf(Greeter.props("Hello", printer), "helloGreeter")
+  val goodDayGreeter: ActorRef =
+    system.actorOf(Greeter.props("Good day", printer), "goodDayGreeter")
+  //#create-actors
 
-    //#main-send-messages
-    howdyGreeter ! WhoToGreet("Akka")
-    howdyGreeter ! Greet
+  //#main-send-messages
+  howdyGreeter ! WhoToGreet("Akka")
+  howdyGreeter ! Greet
 
-    howdyGreeter ! WhoToGreet("Lightbend")
-    howdyGreeter ! Greet
+  howdyGreeter ! WhoToGreet("Lightbend")
+  howdyGreeter ! Greet
 
-    helloGreeter ! WhoToGreet("Scala")
-    helloGreeter ! Greet
+  helloGreeter ! WhoToGreet("Scala")
+  helloGreeter ! Greet
 
-    goodDayGreeter ! WhoToGreet("Play")
-    goodDayGreeter ! Greet
-    //#main-send-messages
-
-    println(">>> Press ENTER to exit <<<")
-    StdIn.readLine()
-  } finally {
-    system.terminate()
-  }
+  goodDayGreeter ! WhoToGreet("Play")
+  goodDayGreeter ! Greet
+  //#main-send-messages
 }
 //#main-class
 //#full-example

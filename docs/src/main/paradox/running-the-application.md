@@ -20,19 +20,17 @@ Just as you did earlier, run the application from a console:
 
    sbt downloads project dependencies. The `>` prompt indicates sbt has started in interactive mode.
 
-1. At the sbt prompt, enter `run`. 
+1. At the sbt prompt, enter `reStart`.
    
    The output should look _something_ like this (scroll all the way to the right to see the Actor output):
  
 ```
 [info] Compiling 1 Scala source and 1 Java source to /Users/x/akka-quickstart-scala/target/scala-2.12/classes...
 [info] Running com.lightbend.akka.sample.AkkaQuickstart
->>> Press ENTER to exit <<<
 [INFO] [05/09/2017 09:57:15.979] [helloAkka-akka.actor.default-dispatcher-2] [akka://helloAkka/user/printerActor] Greeting received (from Actor[akka://helloAkka/user/howdyGreeter#-1854995773]): Howdy, Akka
 [INFO] [05/09/2017 09:57:15.980] [helloAkka-akka.actor.default-dispatcher-2] [akka://helloAkka/user/printerActor] Greeting received (from Actor[akka://helloAkka/user/helloGreeter#-1072877049]): Hello, Scala
 [INFO] [05/09/2017 09:57:15.980] [helloAkka-akka.actor.default-dispatcher-2] [akka://helloAkka/user/printerActor] Greeting received (from Actor[akka://helloAkka/user/goodDayGreeter#1972065097]): Good day, Play
 [INFO] [05/09/2017 09:57:15.980] [helloAkka-akka.actor.default-dispatcher-2] [akka://helloAkka/user/printerActor] Greeting received (from Actor[akka://helloAkka/user/howdyGreeter#-1854995773]): Howdy, Lightbend
-[success] Total time: 5 s, completed May 9, 2017 9:52:34 AM
 ```
  
 Remember that the test implementation set the `Printer` Actor to use Akka logger? This provides a lot of extra information. For example, the log output contains includes the time and name of the Actor. Let's focus on the output from the `Printer` Actor for a while:
