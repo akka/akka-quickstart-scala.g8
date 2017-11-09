@@ -2,7 +2,7 @@
 
 ## Quickstart guide
 
-This example is described in the [Akka Quickstart with Scala guide](http://developer.lightbend.com/guides/akka-quickstart-scala/)
+This example is described in the [Akka Quickstart with Scala guide](https://developer.lightbend.com/guides/akka-quickstart-scala/)
 
 The Hello World example illustrates Akka basics. Within 30 minutes, you should be able to download and run the example and use this guide to understand how the example is constructed. This will get your feet wet, and hopefully inspire you to dive deeper into the wonderful sea of Akka!
 
