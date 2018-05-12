@@ -26,16 +26,6 @@ Once inside the project folder, run the application with:
 sbt run
 ```
 
-This template also provides build descriptors for maven and gradle. You can use any of the following commands to run 
-the application:
-```
-mvn exec:exec
-```
-or
-```
-gradle run
-```
-
 ## Template license
 
 Written in 2017 by Lightbend, Inc.
