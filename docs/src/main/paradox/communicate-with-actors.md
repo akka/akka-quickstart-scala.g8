@@ -8,10 +8,10 @@ You might be wondering what the Actor is doing when it is not processing message
 
 To put a message into an Actor's mailbox, use the `!` (bang) method on the `ActorRef`. For example, the main class of Hello World sends messages to the `Greeter` Actor like this:
  
-@@snip [AkkaQuickstart.scala]($g8src$/scala/com/lightbend/akka/sample/AkkaQuickstart.scala) { #main-send-messages }
+@@snip [AkkaQuickstart.scala]($g8src$/scala/$package$/AkkaQuickstart.scala) { #main-send-messages }
  
 The `Greeter` Actor also sends a message to the `Printer` Actor:
  
-@@snip [AkkaQuickstart.scala]($g8src$/scala/com/lightbend/akka/sample/AkkaQuickstart.scala) { #greeter-send-message }
+@@snip [AkkaQuickstart.scala]($g8src$/scala/$package$/AkkaQuickstart.scala) { #greeter-send-message }
  
 We've looked at how to create actors and send messages. Now, let's review by looking at the `Main` class in its entirety. 

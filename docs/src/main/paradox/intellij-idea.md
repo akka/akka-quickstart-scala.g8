@@ -12,15 +12,15 @@ Fill out the settings according to the above and press `OK` to import the projec
 
 ### Inspecting project code
 
-If we open up the file `src/main/scala/com/lightbend/akka/sample/AkkaQuickstart.scala` we will see a lot of lines beginning with `//# ...`. These lines are used as directives for this documentation. To get rid of these lines from the source code we can utilize the awesome Find/Replace functionality in IntelliJ. Select `Edit -> Find -> Replace in Path...`. Check the `Regex` box and add the following regex `[//#].*` and click on `Replace in Find Window...`. Select to replace all occurrences and voila the lines are gone!
+If we open up the file `src/main/scala/$package$/AkkaQuickstart.scala` we will see a lot of lines beginning with `//# ...`. These lines are used as directives for this documentation. To get rid of these lines from the source code we can utilize the awesome Find/Replace functionality in IntelliJ. Select `Edit -> Find -> Replace in Path...`. Check the `Regex` box and add the following regex `[//#].*` and click on `Replace in Find Window...`. Select to replace all occurrences and voila the lines are gone!
 
 ### Testing and running
 
-For testing we simply right click on the file `src/test/scala/com/lightbend/akka/sample/AkkaQuickstartSpec.scala` and select `Run 'AkkaQuickstartSpec'`:
+For testing we simply right click on the file `src/test/scala/$package$/AkkaQuickstartSpec.scala` and select `Run 'AkkaQuickstartSpec'`:
 
 ![IntelliJ](images/intellij-test-output.png)
 
-Similarly to run the application we right click on the file `src/main/scala/com/lightbend/akka/sample/AkkaQuickstart.scala` and select `Run 'AkkaQuickstart'`:
+Similarly to run the application we right click on the file `src/main/scala/$package$/AkkaQuickstart.scala` and select `Run 'AkkaQuickstart'`:
 
 ![IntelliJ](images/intellij-run-output.png)
 

@@ -16,7 +16,7 @@ Actor and `ActorSystem` names are important in Akka. For example, you use them f
  
 The previous topic reviewed the definition of Hello World Actors. Let's look at the code in the `AkkaQuickstart.scala` file that creates `Greeter` and `Printer` Actor instances:
  
-@@snip [AkkaQuickstart.scala]($g8src$/scala/com/lightbend/akka/sample/AkkaQuickstart.scala) { #create-actors }
+@@snip [AkkaQuickstart.scala]($g8src$/scala/$package$/AkkaQuickstart.scala) { #create-actors }
  
 Notice the following:
 
