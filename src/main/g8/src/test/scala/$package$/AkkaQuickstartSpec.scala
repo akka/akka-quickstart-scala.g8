@@ -5,6 +5,7 @@ import org.scalatest.{ BeforeAndAfterAll, FlatSpecLike, Matchers }
 import akka.actor.ActorSystem
 import akka.testkit.{ TestKit, TestProbe }
 import scala.concurrent.duration._
+import scala.language.postfixOps
 import Greeter._
 import Printer._
 
