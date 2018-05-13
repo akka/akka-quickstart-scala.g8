@@ -2,8 +2,8 @@
 package $package$
 
 import org.scalatest.{ BeforeAndAfterAll, FlatSpecLike, Matchers }
-import akka.actor.{ Actor, Props, ActorSystem }
-import akka.testkit.{ ImplicitSender, TestKit, TestActorRef, TestProbe }
+import akka.actor.ActorSystem
+import akka.testkit.{ TestKit, TestProbe }
 import scala.concurrent.duration._
 import Greeter._
 import Printer._
