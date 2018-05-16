@@ -1,7 +1,7 @@
 //#full-example
 package com.lightbend.akka.sample
 
-import org.scalatest.{ BeforeAndAfterAll, FlatSpecLike, Matchers }
+import org.scalatest.{ BeforeAndAfterAll, WordSpecLike, Matchers }
 import akka.actor.{ Actor, Props, ActorSystem }
 import akka.testkit.{ ImplicitSender, TestKit, TestActorRef, TestProbe }
 import scala.concurrent.duration._
@@ -12,7 +12,7 @@ import Printer._
 class AkkaQuickstartSpec(_system: ActorSystem)
   extends TestKit(_system)
   with Matchers
-  with FlatSpecLike
+  with WordSpecLike
   with BeforeAndAfterAll {
   //#test-classes
 
@@ -24,15 +24,17 @@ class AkkaQuickstartSpec(_system: ActorSystem)
 
   //#first-test
   //#specification-example
-  "A Greeter Actor" should "pass on a greeting message when instructed to" in {
-    //#specification-example
-    val testProbe = TestProbe()
-    val helloGreetingMessage = "hello"
-    val helloGreeter = system.actorOf(Greeter.props(helloGreetingMessage, testProbe.ref))
-    val greetPerson = "Akka"
-    helloGreeter ! WhoToGreet(greetPerson)
-    helloGreeter ! Greet
-    testProbe.expectMsg(500 millis, Greeting(s"$helloGreetingMessage, $greetPerson"))
+  "A Greeter Actor" should {
+    "pass on a greeting message when instructed to" in {
+      //#specification-example
+      val testProbe = TestProbe()
+      val helloGreetingMessage = "hello"
+      val helloGreeter = system.actorOf(Greeter.props(helloGreetingMessage, testProbe.ref))
+      val greetPerson = "Akka"
+      helloGreeter ! WhoToGreet(greetPerson)
+      helloGreeter ! Greet
+      testProbe.expectMsg(500 millis, Greeting(s"$helloGreetingMessage, $greetPerson"))
+    }
   }
   //#first-test
 }
