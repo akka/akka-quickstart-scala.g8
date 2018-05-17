@@ -1,10 +1,11 @@
 //#full-example
-package com.lightbend.akka.sample
+package $package$
 
 import org.scalatest.{ BeforeAndAfterAll, WordSpecLike, Matchers }
-import akka.actor.{ Actor, Props, ActorSystem }
-import akka.testkit.{ ImplicitSender, TestKit, TestActorRef, TestProbe }
+import akka.actor.ActorSystem
+import akka.testkit.{ TestKit, TestProbe }
 import scala.concurrent.duration._
+import scala.language.postfixOps
 import Greeter._
 import Printer._
 
@@ -33,7 +34,7 @@ class AkkaQuickstartSpec(_system: ActorSystem)
       val greetPerson = "Akka"
       helloGreeter ! WhoToGreet(greetPerson)
       helloGreeter ! Greet
-      testProbe.expectMsg(500 millis, Greeting(s"$helloGreetingMessage, $greetPerson"))
+      testProbe.expectMsg(500 millis, Greeting(helloGreetingMessage + ", " + greetPerson))
     }
   }
   //#first-test

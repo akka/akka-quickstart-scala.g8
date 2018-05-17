@@ -44,7 +44,7 @@ Remember that the test implementation set the `Printer` Actor to use Akka logger
  
 This is the result of our code that sends messages to the `Greeter` Actor:
  
-@@snip [AkkaQuickstart.scala]($g8src$/scala/com/lightbend/akka/sample/AkkaQuickstart.scala) { #main-send-messages }
+@@snip [AkkaQuickstart.scala]($g8src$/scala/$package$/AkkaQuickstart.scala) { #main-send-messages }
 
 To run the tests, enter `test` at the sbt prompt.
  

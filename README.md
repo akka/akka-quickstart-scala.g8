@@ -16,7 +16,7 @@ Prerequisites:
 
 Open a console and run the following command to apply this template:
  ```
-sbt -Dsbt.version=0.13.15 new akka/akka-quickstart-scala.g8
+sbt -Dsbt.version=0.13.17 new akka/akka-quickstart-scala.g8
  ```
 
 This template will prompt for the name of the project. Press `Enter` if the default values suit you.
@@ -24,16 +24,6 @@ This template will prompt for the name of the project. Press `Enter` if the defa
 Once inside the project folder, run the application with:
 ```
 sbt run
-```
-
-This template also provides build descriptors for maven and gradle. You can use any of the following commands to run 
-the application:
-```
-mvn exec:exec
-```
-or
-```
-gradle run
 ```
 
 ## Template license

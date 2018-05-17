@@ -1,5 +1,5 @@
 //#full-example
-package com.lightbend.akka.sample
+package $package$
 
 import akka.actor.{ Actor, ActorLogging, ActorRef, ActorSystem, Props }
 
@@ -24,7 +24,7 @@ class Greeter(message: String, printerActor: ActorRef) extends Actor {
 
   def receive = {
     case WhoToGreet(who) =>
-      greeting = s"$message, $who"
+      greeting = message + ", " + who
     case Greet           =>
       //#greeter-send-message
       printerActor ! Greeting(greeting)
@@ -50,7 +50,7 @@ class Printer extends Actor with ActorLogging {
 
   def receive = {
     case Greeting(greeting) =>
-      log.info(s"Greeting received (from ${sender()}): $greeting")
+      log.info("Greeting received (from " + sender() + "): " + greeting)
   }
 }
 //#printer-actor
