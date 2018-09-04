@@ -7,7 +7,7 @@ scala:
 cache:
   directories:
     - $HOME/.ivy2/cache
-    - $HOME/.sbt/boot/
+    - $HOME/.sbt
 
 jdk:
   - oraclejdk8
