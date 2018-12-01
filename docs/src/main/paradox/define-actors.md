@@ -24,11 +24,11 @@ Lets see how the companion objects and Actor implementations for `Greeter` and `
 
 The following code snippet in the `AkkaQuickstart.scala` file for the companion object defines the messages handled by the `Greeter` Actor:
  
-@@snip [AkkaQuickstart.scala]($g8src$/scala/$package$/AkkaQuickstart.scala) { #greeter-messages }
+@@snip [AkkaQuickstart.scala](/src/main/g8/src/main/scala/$package$/AkkaQuickstart.scala) { #greeter-messages }
 
 The following snippet defines the `props` method.
 
-@@snip [AkkaQuickstart.scala]($g8src$/scala/$package$/AkkaQuickstart.scala) { #greeter-companion }
+@@snip [AkkaQuickstart.scala](/src/main/g8/src/main/scala/$package$/AkkaQuickstart.scala) { #greeter-companion }
  
 The `props` method creates and returns a `Props` instance. `Props` is a configuration class to specify options for the creation of actors, think of it as an immutable and thus freely shareable recipe for creating an actor that can include associated deployment information. This example simply passes the parameters that the Actor requires when being constructed. We will see the `props` method in action later in this tutorial.
  
@@ -36,7 +36,7 @@ The `props` method creates and returns a `Props` instance. `Props` is a configur
  
 The following snippet from the `AkkaQuickstart.scala` implements the `Greeter` Actor:  
  
-@@snip [AkkaQuickstart.scala]($g8src$/scala/$package$/AkkaQuickstart.scala) { #greeter-actor }
+@@snip [AkkaQuickstart.scala](/src/main/g8/src/main/scala/$package$/AkkaQuickstart.scala) { #greeter-actor }
  
 Let's break down the functionality:
 
@@ -49,11 +49,11 @@ Let's break down the functionality:
 
 Similar to 'Greeter', the companion object defines the messages handled by the `Printer` Actor:
 
-@@snip [AkkaQuickstart.scala]($g8src$/scala/$package$/AkkaQuickstart.scala) { #printer-messages }
+@@snip [AkkaQuickstart.scala](/src/main/g8/src/main/scala/$package$/AkkaQuickstart.scala) { #printer-messages }
   
 And, the companion object of `Printer` defines a `props` method and the message that the Actor expects:
  
-@@snip [AkkaQuickstart.scala]($g8src$/scala/$package$/AkkaQuickstart.scala) { #printer-companion }
+@@snip [AkkaQuickstart.scala](/src/main/g8/src/main/scala/$package$/AkkaQuickstart.scala) { #printer-companion }
  
 ### Printer Actor implementation
  
@@ -62,4 +62,4 @@ The `Printer` implementation is very simple:
 * It extends `akka.actor.ActorLogging` to automatically get a reference to a logger. By doing this we can write `log.info()` in the Actor without any additional importing or wiring.
 * It just handles one type of message, `Greeting`, and logs the content of that message.  
  
-@@snip [AkkaQuickstart.scala]($g8src$/scala/$package$/AkkaQuickstart.scala) { #printer-actor }
+@@snip [AkkaQuickstart.scala](/src/main/g8/src/main/scala/$package$/AkkaQuickstart.scala) { #printer-actor }
