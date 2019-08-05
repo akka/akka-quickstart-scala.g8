@@ -3,14 +3,18 @@ scala:
   - 2.11.11
   - 2.12.6
 
+before_install:
+  # using jabba for custom jdk management
+  - curl -sL https://raw.githubusercontent.com/shyiko/jabba/0.11.2/install.sh | bash && . ~/.jabba/jabba.sh
+  - jabba install $TRAVIS_JDK
+install: jabba use "$TRAVIS_JDK" && java -Xmx32m -version
+
 # These directories are cached to S3 at the end of the build
 cache:
   directories:
     - $HOME/.ivy2/cache
     - $HOME/.sbt
-
-jdk:
-  - oraclejdk8
+    - $HOME/.jabba/jdk
 
 script:
   ## This runs the template with the default parameters, and runs test within the templated app.
@@ -19,3 +23,7 @@ script:
   # Tricks to avoid unnecessary cache updates
   - find $HOME/.sbt -name "*.lock" | xargs rm
   - find $HOME/.ivy2 -name "ivydata-*.properties" | xargs rm
+
+env:
+  global:
+    - TRAVIS_JDK=adopt@~1.8.202-08
