@@ -26,4 +26,4 @@ script:
 
 env:
   global:
-    - TRAVIS_JDK=adopt@~1.8.202-08
+    - TRAVIS_JDK=adopt@~1.8.0-222
