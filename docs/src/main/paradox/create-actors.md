@@ -13,8 +13,8 @@ If needed, the runtime can optimize the system by changing an Actor's location o
  
 ### The Akka ActorSystem
 
-An ActorSystem is the intial entry point into Akka, usually only one is created per application.
-An ActorSystem has a name and a guardian actor. The bootstrap of your application is typically 
+An `ActorSystem` is the intial entry point into Akka, usually only one is created per application.
+An `ActorSystem` has a name and a guardian actor. The bootstrap of your application is typically 
 done within the guardian actor.
 
 The Hello work guardian actor is `GreeterMain`.

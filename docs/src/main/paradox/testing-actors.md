@@ -9,7 +9,7 @@ The tests in the Hello World example illustrates use of the [ScalaTest](http://w
 Support for ScalaTest is included by extending `ScalaTestWithActorTestKit`. For other test frameworks the testkit can be
 used directly, see the [full documentation](https://doc.akka.io/docs/akka/2.6/typed/testing-async.html).
 
-This manages the lifecycle of the `TestKit` we'll use in the tests 
+This manages the lifecycle of the `ActorTestKit` we'll use in the tests 
 
 ### Test methods
 
@@ -26,5 +26,5 @@ And, here is the complete code:
  
 @@snip [AkkaQuickstartSpec.scala](/src/main/g8/src/test/scala/$package$/AkkaQuickstartSpec.scala) { #full-example }
  
-The example code just scratches the surface of the functionality available in `TestKit`. A complete overview can be found [here](https://doc.akka.io/docs/akka/2.6/typed/testing-async.html).
+The example code just scratches the surface of the functionality available in `ActorTestKit`. A complete overview can be found [here](https://doc.akka.io/docs/akka/2.6/typed/testing-async.html).
  

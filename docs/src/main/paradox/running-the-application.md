@@ -25,22 +25,22 @@ Just as you did earlier, run the application from a console:
    The output should look _something_ like this (scroll all the way to the right to see the Actor output):
 
 ```
-[2019-10-09 09:55:23,390] [INFO ] [com.example.Greeter$] [AkkaQuickStart-akka.actor.default-dispatcher-5]
+[2019-10-09 09:55:23,390] [INFO] [com.example.Greeter$] [AkkaQuickStart-akka.actor.default-dispatcher-5]
 [akka://AkkaQuickStart/user/greeter] - Hello Charles!
-[2019-10-09 09:55:23,392] [INFO ] [com.example.GreeterBot$] [AkkaQuickStart-akka.actor.default-dispatcher-3]
+[2019-10-09 09:55:23,392] [INFO] [com.example.GreeterBot$] [AkkaQuickStart-akka.actor.default-dispatcher-3]
 [akka://AkkaQuickStart/user/Charles] - Greeting 1 for Charles
-[2019-10-09 09:55:23,392] [INFO ] [com.example.Greeter$] [AkkaQuickStart-akka.actor.default-dispatcher-5]
+[2019-10-09 09:55:23,392] [INFO] [com.example.Greeter$] [AkkaQuickStart-akka.actor.default-dispatcher-5]
 [akka://AkkaQuickStart/user/greeter] - Hello Charles!
-[2019-10-09 09:55:23,392] [INFO ] [com.example.GreeterBot$] [AkkaQuickStart-akka.actor.default-dispatcher-3]
+[2019-10-09 09:55:23,392] [INFO] [com.example.GreeterBot$] [AkkaQuickStart-akka.actor.default-dispatcher-3]
 [akka://AkkaQuickStart/user/Charles] - Greeting 2 for Charles
-[2019-10-09 09:55:23,392] [INFO ] [com.example.Greeter$] [AkkaQuickStart-akka.actor.default-dispatcher-5]
+[2019-10-09 09:55:23,392] [INFO] [com.example.Greeter$] [AkkaQuickStart-akka.actor.default-dispatcher-5]
 [akka://AkkaQuickStart/user/greeter] - Hello Charles!
-[2019-10-09 09:55:23,392] [INFO ] [com.example.GreeterBot$] [AkkaQuickStart-akka.actor.default-dispatcher-3]
+[2019-10-09 09:55:23,392] [INFO] [com.example.GreeterBot$] [AkkaQuickStart-akka.actor.default-dispatcher-3]
 [akka://AkkaQuickStart/user/Charles] - Greeting 3 for Charles
 
 ```
  
-Remember that the implementation set the `Greeter` Actor used the logger from the `ActorContext`? 
+Remember that the implementation of the `Greeter` Actor used the logger from the `ActorContext`? 
 This provides a lot of extra information. For example, the log output contains includes the time and name of the object the behavior was defined. 
  
 To run the tests, enter `test` at the sbt prompt.

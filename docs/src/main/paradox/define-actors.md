@@ -1,4 +1,4 @@
-## Defining Actors and messages      
+# Defining Actors and messages      
 
 Each actor defines a type `T` for the messages it can receive.
 Case classes and case objects make excellent messages since they are immutable and have support for pattern matching, something we will take advantage of in the Actor when matching on the messages it has received. 
@@ -15,7 +15,7 @@ When defining Actors and their messages, keep these recommendations in mind:
 
 * _Messages should be immutable_, since they are shared between different threads.
 
-* It is a good practice to put an actor's associated messages in its bject. This makes it easier to understand what type of messages the actor expects and handles. 
+* It is a good practice to put an actor's associated messages in its object. This makes it easier to understand what type of messages the actor expects and handles. 
 
 * It is a good practice obtain an actor's initial behavior in the object's apply method
 
