@@ -1,42 +1,25 @@
 //#full-example
 package $package$
 
-import org.scalatest.{ BeforeAndAfterAll, WordSpecLike, Matchers }
-import akka.actor.ActorSystem
-import akka.testkit.{ TestKit, TestProbe }
-import scala.concurrent.duration._
-import scala.language.postfixOps
-import Greeter._
-import Printer._
+import akka.actor.testkit.typed.scaladsl.ScalaTestWithActorTestKit
+import com.example.Greeter.Greet
+import com.example.Greeter.Greeted
+import org.scalatest.WordSpecLike
 
-//#test-classes
-class AkkaQuickstartSpec(_system: ActorSystem)
-  extends TestKit(_system)
-  with Matchers
-  with WordSpecLike
-  with BeforeAndAfterAll {
-  //#test-classes
+//#definition
+class AkkaQuickstartSpec extends ScalaTestWithActorTestKit with WordSpecLike {
+//#definition
 
-  def this() = this(ActorSystem("AkkaQuickstartSpec"))
-
-  override def afterAll: Unit = {
-    shutdown(system)
-  }
-
-  //#first-test
-  //#specification-example
-  "A Greeter Actor" should {
-    "pass on a greeting message when instructed to" in {
-      //#specification-example
-      val testProbe = TestProbe()
-      val helloGreetingMessage = "hello"
-      val helloGreeter = system.actorOf(Greeter.props(helloGreetingMessage, testProbe.ref))
-      val greetPerson = "Akka"
-      helloGreeter ! WhoToGreet(greetPerson)
-      helloGreeter ! Greet
-      testProbe.expectMsg(500 millis, Greeting(helloGreetingMessage + ", " + greetPerson))
+  "A Greeter" must {
+    //#test
+    "reply to greeted" in {
+      val replyProbe = createTestProbe[Greeted]()
+      val underTest = spawn(Greeter())
+      underTest ! Greet("Santa", replyProbe.ref)
+      replyProbe.expectMessage(Greeted("Santa", underTest.ref))
     }
+    //#test
   }
-  //#first-test
+
 }
 //#full-example

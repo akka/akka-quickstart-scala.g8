@@ -1,12 +1,13 @@
-## Defining Actors and messages      
+# Defining Actors and messages      
 
-Messages can be of arbitrary type (any subtype of `Any`). You can send boxed primitive values (such as `String`, `Integer`, `Boolean` etc.) as messages as well as plain data structures like arrays and collection types. Case classes and case objects make excellent messages since they are immutable and have support for pattern matching, something we will take advantage of in the Actor when matching on the messages it has received. 
+Each actor defines a type `T` for the messages it can receive.
+Case classes and case objects make excellent messages since they are immutable and have support for pattern matching, something we will take advantage of in the Actor when matching on the messages it has received. 
 
-Hello World Actors use three different messages:
+The Hello World Actors use three different messages:
 
-* `WhoToGreet`: recipient of the greeting
-* `Greet`: instruction to execute greeting
-* `Greeting`: message containing the greeting
+* `Greet`: command sent to the `Greeter` actor to greet
+* `Greeted`: reply from the `Greeter` actor to confirm the greeting has happened
+* `Start`: command to the `GreeterMain` to start the greeting process
 
 When defining Actors and their messages, keep these recommendations in mind:
 
@@ -14,52 +15,64 @@ When defining Actors and their messages, keep these recommendations in mind:
 
 * _Messages should be immutable_, since they are shared between different threads.
 
-* _It is a good practice to put an actor's associated messages in its companion object_. This makes it easier to understand what type of messages the actor expects and handles. 
+* It is a good practice to put an actor's associated messages in its object. This makes it easier to understand what type of messages the actor expects and handles. 
 
-* _It is also a common pattern to use a `props` method in the companion object that describes how to construct the Actor._ 
+* It is a good practice obtain an actor's initial behavior in the object's apply method
 
-Lets see how the companion objects and Actor implementations for `Greeter` and `Printer` demonstrate these best practices. 
+Lets see how the objects and Behavior implementations for `Greeter`, `GreeterBot` and `GreeterMain` demonstrate these best practices. 
 
-### The Greeter Actor companion object
+### The Greeter actor
 
-The following code snippet in the `AkkaQuickstart.scala` file for the companion object defines the messages handled by the `Greeter` Actor:
- 
-@@snip [AkkaQuickstart.scala](/src/main/g8/src/main/scala/$package$/AkkaQuickstart.scala) { #greeter-messages }
-
-The following snippet defines the `props` method.
-
-@@snip [AkkaQuickstart.scala](/src/main/g8/src/main/scala/$package$/AkkaQuickstart.scala) { #greeter-companion }
- 
-The `props` method creates and returns a `Props` instance. `Props` is a configuration class to specify options for the creation of actors, think of it as an immutable and thus freely shareable recipe for creating an actor that can include associated deployment information. This example simply passes the parameters that the Actor requires when being constructed. We will see the `props` method in action later in this tutorial.
- 
-#### The Greeter Actor implementation
- 
-The following snippet from the `AkkaQuickstart.scala` implements the `Greeter` Actor:  
- 
 @@snip [AkkaQuickstart.scala](/src/main/g8/src/main/scala/$package$/AkkaQuickstart.scala) { #greeter-actor }
- 
-Let's break down the functionality:
 
-* The `Greeter` class extends the `akka.actor.Actor` trait and implements the `receive` method. 
-* The `Greeter` constructor accepts two parameters: `message: String`, which will be used when building greeting messages and `printerActor: ActorRef`, which is a reference to the Actor handling the outputting of the greeting.
-* The `receive` method defines behavior; how the Actor should react to the different messages it receives. An Actor can have state. Accessing or mutating the internal state of an Actor is fully thread safe since it is protected by the Actor model. The `receive` method should handle the messages the actor expects. In the case of `Greeter`, it expects two types of messages: `WhoToGreet` and `Greet`. The former will update the `greeting` state of the Actor and the latter will trigger a sending of the `greeting` to the `Printer` Actor.
-* The `greeting` variable contains the Actor's state and is set to `""` by default.
- 
-### Printer Actor companion object
+This piece of code defines two message types, one for commanding the
+Actor to greet someone and one that the Actor will use to confirm that it has
+done so. The `Greet` type contains not only the information of whom to
+greet, it also holds an `ActorRef` that the sender of the message
+supplies so that the `HelloWorld` Actor can send back the confirmation
+message.
 
-Similar to 'Greeter', the companion object defines the messages handled by the `Printer` Actor:
+The behavior of the Actor is defined as the `Greeter` with the help
+of the `receive` behavior factory. Processing the next message then results
+in a new behavior that can potentially be different from this one. State is
+updated by returning a new behavior that holds the new immutable state. In this
+case we don't need to update any state, so we return same, which means
+the next behavior is "the same as the current one".
 
-@@snip [AkkaQuickstart.scala](/src/main/g8/src/main/scala/$package$/AkkaQuickstart.scala) { #printer-messages }
-  
-And, the companion object of `Printer` defines a `props` method and the message that the Actor expects:
- 
-@@snip [AkkaQuickstart.scala](/src/main/g8/src/main/scala/$package$/AkkaQuickstart.scala) { #printer-companion }
- 
-### Printer Actor implementation
- 
-The `Printer` implementation is very simple:
+The type of the messages handled by this behavior is declared to be of class
+`Greet`, meaning that `message` argument is also typed as such.
+This is why we can access the `whom` and `replyTo` members without needing to use a pattern match.
+Typically, an actor handles more than one specific message type and then there
+is one common trait that all messages that the
+actor can handle `extends`.
 
-* It extends `akka.actor.ActorLogging` to automatically get a reference to a logger. By doing this we can write `log.info()` in the Actor without any additional importing or wiring.
-* It just handles one type of message, `Greeting`, and logs the content of that message.  
+On the last line we see the `HelloWorld` Actor send a message to another
+Actor, which is done using the `!` operator (pronounced “bang” or “tell”).
+It is an asynchronous operation that doesn't block the caller's thread.
+
+Since the `replyTo` address is declared to be of type `ActorRef[Greeted]`, the
+compiler will only permit us to send messages of this type, other usage will
+be a compiler error.
+
+The accepted message types of an Actor together with all reply types defines
+the protocol spoken by this Actor; in this case it is a simple request–reply
+protocol but Actors can model arbitrarily complex protocols when needed. The
+protocol is bundled together with the behavior that implements it in a nicely
+wrapped scope—the `HelloWorld` object.
  
-@@snip [AkkaQuickstart.scala](/src/main/g8/src/main/scala/$package$/AkkaQuickstart.scala) { #printer-actor }
+### The Greeter bot actor
+
+@@snip [AkkaQuickstart.scala](/src/main/g8/src/main/scala/$package$/AkkaQuickstart.scala) { #greeter-bot }
+
+Note how this Actor manages the counter by changing the behavior for each `Greeted` reply
+rather than using any variables. 
+No concurrency guards such as `synchronized` or `AtomicInteger` are needed since an actor instance processes one
+message at a time.
+
+### The Greeter main actor
+
+A third actor spawns the `Greeter` and the `HelloWorldBot` and starts the interaction, creating actors
+and what `spawn` does is discussed next.
+
+@@snip [AkkaQuickstart.scala](/src/main/g8/src/main/scala/$package$/AkkaQuickstart.scala) { #greeter-main }
+

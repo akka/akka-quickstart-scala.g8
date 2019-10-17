@@ -3,9 +3,11 @@
 Akka is a toolkit and runtime for building highly concurrent, distributed, and fault-tolerant event-driven applications on the JVM. Akka can be used with both Java and Scala.
 This guide introduces Akka by describing the Scala version of the Hello World example. If you prefer to use Akka with Java, switch to the [Akka Quickstart with Java guide](https://developer.lightbend.com/guides/akka-quickstart-java/). 
 
-Actors are the unit of execution in Akka. The Actor model is an abstraction that makes it easier to write correct concurrent, parallel and distributed systems. The Hello World example illustrates Akka basics. Within 30 minutes, you should be able to download and run the example and use this guide to understand how the example is constructed. This will get your feet wet, and hopefully inspire you to dive deeper into the wonderful sea of Akka!
+Actors are the unit of execution in Akka. The Actor model is an abstraction that makes it easier to write correct concurrent, parallel and distributed systems. 
+The Hello World example illustrates Akka basics. Within 30 minutes, you should be able to download and run the example and use this guide to understand how the example is constructed. 
+This will get your feet wet, and hopefully inspire you to dive deeper into the wonderful sea of Akka!
 
-After trying this example the comprehensive [Getting Started Guide](http://doc.akka.io/docs/akka/current/scala/guide/introduction.html) is a good next step to continue learning more about Akka.
+After trying this example the comprehensive [Getting Started Guide](http://doc.akka.io/docs/akka/2.6/scala/guide/introduction.html) is a good next step to continue learning more about Akka.
 
 ## Downloading the example 
 
@@ -40,31 +42,31 @@ To run Hello World:
     sbt builds the project and runs Hello World
 
 The output should look _something_ like this (scroll all the way to the right to see the Actor output):
- 
+
 ```
-[info] Compiling 1 Scala source and 1 Java source to /Users/x/akka-quickstart-scala/target/scala-2.12/classes...
-[info] Running com.lightbend.akka.sample.AkkaQuickstart
-[INFO] [05/09/2017 09:57:15.979] [helloAkka-akka.actor.default-dispatcher-2] [akka://helloAkka/user/printerActor] Greeting received (from Actor[akka://helloAkka/user/howdyGreeter#-1854995773]): Howdy, Akka
-[INFO] [05/09/2017 09:57:15.980] [helloAkka-akka.actor.default-dispatcher-2] [akka://helloAkka/user/printerActor] Greeting received (from Actor[akka://helloAkka/user/helloGreeter#-1072877049]): Hello, Scala
-[INFO] [05/09/2017 09:57:15.980] [helloAkka-akka.actor.default-dispatcher-2] [akka://helloAkka/user/printerActor] Greeting received (from Actor[akka://helloAkka/user/goodDayGreeter#1972065097]): Good day, Play
-[INFO] [05/09/2017 09:57:15.980] [helloAkka-akka.actor.default-dispatcher-2] [akka://helloAkka/user/printerActor] Greeting received (from Actor[akka://helloAkka/user/howdyGreeter#-1854995773]): Howdy, Lightbend
+[2019-10-09 09:55:23,390] [INFO ] [com.example.Greeter$] [AkkaQuickStart-akka.actor.default-dispatcher-5]
+[akka://AkkaQuickStart/user/greeter] - Hello Charles!
+[2019-10-09 09:55:23,392] [INFO ] [com.example.GreeterBot$] [AkkaQuickStart-akka.actor.default-dispatcher-3]
+[akka://AkkaQuickStart/user/Charles] - Greeting 1 for Charles
+[2019-10-09 09:55:23,392] [INFO ] [com.example.Greeter$] [AkkaQuickStart-akka.actor.default-dispatcher-5]
+[akka://AkkaQuickStart/user/greeter] - Hello Charles!
+[2019-10-09 09:55:23,392] [INFO ] [com.example.GreeterBot$] [AkkaQuickStart-akka.actor.default-dispatcher-3]
+[akka://AkkaQuickStart/user/Charles] - Greeting 2 for Charles
+[2019-10-09 09:55:23,392] [INFO ] [com.example.Greeter$] [AkkaQuickStart-akka.actor.default-dispatcher-5]
+[akka://AkkaQuickStart/user/greeter] - Hello Charles!
+[2019-10-09 09:55:23,392] [INFO ] [com.example.GreeterBot$] [AkkaQuickStart-akka.actor.default-dispatcher-3]
+[akka://AkkaQuickStart/user/Charles] - Greeting 3 for Charles
 ```
    
 Congratulations, you just ran your first Akka app. Now take a look at what happened under the covers. 
 
 ## What Hello World does
 
-As you saw in the console output, the example outputs several greetings. Let’s take a look what happens at runtime.
+The example consists of three actors:
 
-![Architecture](images/hello-akka-architecture.png)
-
-First, the `main` class creates an `akka.actor.ActorSystem`, a container in which Actors run. Next, it creates three instances of a Greeter Actor and one instance of a Printer Actor. 
-
-The example then sends messages to the Greeter Actor instances, which store them internally. Finally, instruction messages to the Greeter Actors trigger them to send messages to the Printer Actor, which outputs them to the console:
-
-![Messages](images/hello-akka-messages.png)
-
-Akka's use of Actors and asynchronous messaging result in a range of benefits. Consider a few.
+* Greet: Receives commands to `Greet` someone and responds with a `Greeted` to confirm the greeting has taken place
+* GreeterBot: receives the reply from the Greeter and sends a number of additional greeting messages and collect the replies until a given max number of messages have been reached.
+* GreeterMain: The guardian actor that bootstraps everything
 
 ## Benefits of using the Actor Model
 
