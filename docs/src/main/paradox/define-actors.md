@@ -29,14 +29,14 @@ This piece of code defines two message types, one for commanding the
 Actor to greet someone and one that the Actor will use to confirm that it has
 done so. The `Greet` type contains not only the information of whom to
 greet, it also holds an `ActorRef` that the sender of the message
-supplies so that the `HelloWorld` Actor can send back the confirmation
+supplies so that the `Greeter` Actor can send back the confirmation
 message.
 
 The behavior of the Actor is defined as the `Greeter` with the help
-of the `receive` behavior factory. Processing the next message then results
+of the `Behaviors.receive` behavior factory. Processing the next message then results
 in a new behavior that can potentially be different from this one. State is
 updated by returning a new behavior that holds the new immutable state. In this
-case we don't need to update any state, so we return same, which means
+case we don't need to update any state, so we return `Behaviors.same`, which means
 the next behavior is "the same as the current one".
 
 The type of the messages handled by this behavior is declared to be of class
@@ -46,7 +46,7 @@ Typically, an actor handles more than one specific message type and then there
 is one common trait that all messages that the
 actor can handle `extends`.
 
-On the last line we see the `HelloWorld` Actor send a message to another
+On the last line we see the `Greeter` Actor send a message to another
 Actor, which is done using the `!` operator (pronounced “bang” or “tell”).
 It is an asynchronous operation that doesn't block the caller's thread.
 
@@ -58,7 +58,7 @@ The accepted message types of an Actor together with all reply types defines
 the protocol spoken by this Actor; in this case it is a simple request–reply
 protocol but Actors can model arbitrarily complex protocols when needed. The
 protocol is bundled together with the behavior that implements it in a nicely
-wrapped scope—the `HelloWorld` object.
+wrapped scope—the `Greeter` object.
  
 ### The Greeter bot actor
 
@@ -71,7 +71,7 @@ message at a time.
 
 ### The Greeter main actor
 
-A third actor spawns the `Greeter` and the `HelloWorldBot` and starts the interaction, creating actors
+A third actor spawns the `Greeter` and the `GreeterBot` and starts the interaction, creating actors
 and what `spawn` does is discussed next.
 
 @@snip [AkkaQuickstart.scala](/src/main/g8/src/main/scala/$package$/AkkaQuickstart.scala) { #greeter-main }
