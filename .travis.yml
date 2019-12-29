@@ -2,6 +2,7 @@ language: scala
 scala:
   - 2.11.11
   - 2.12.6
+  - 2.13.1
 
 before_install:
   # using jabba for custom jdk management
