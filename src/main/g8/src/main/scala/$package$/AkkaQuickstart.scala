@@ -6,7 +6,7 @@ import akka.actor.typed.ActorRef
 import akka.actor.typed.ActorSystem
 import akka.actor.typed.Behavior
 import akka.actor.typed.scaladsl.Behaviors
-import $package$.GreeterMain.Start
+import $package$.GreeterMain.SayHello
 
 //#greeter-actor
 object Greeter {
@@ -47,9 +47,9 @@ object GreeterBot {
 //#greeter-main
 object GreeterMain {
 
-  final case class Start(name: String)
+  final case class SayHello(name: String)
 
-  def apply(): Behavior[Start] =
+  def apply(): Behavior[SayHello] =
     Behaviors.setup { context =>
       //#create-actors
       val greeter = context.spawn(Greeter(), "greeter")
@@ -69,11 +69,11 @@ object GreeterMain {
 //#main-class
 object AkkaQuickstart extends App {
   //#actor-system
-  val greeterMain: ActorSystem[GreeterMain.Start] = ActorSystem(GreeterMain(), "AkkaQuickStart")
+  val greeterMain: ActorSystem[GreeterMain.SayHello] = ActorSystem(GreeterMain(), "AkkaQuickStart")
   //#actor-system
 
   //#main-send-messages
-  greeterMain ! Start("Charles")
+  greeterMain ! SayHello("Charles")
   //#main-send-messages
 }
 //#main-class

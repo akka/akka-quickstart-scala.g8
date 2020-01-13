@@ -28,7 +28,7 @@ It uses `Behaviors.setup` to bootstrap the application
 ### Spawning child actors
 
 Other actors are created using `spawn` methods on `ActorContext`. The `GreeterMain` creates a `Greeter` actor
-this way on startup as well as a new `GreeterBot` each time it receives a `Start` message.
+this way on startup as well as a new `GreeterBot` each time it receives a `SayHello` message.
  
 @@snip [AkkaQuickstart.scala](/src/main/g8/src/main/scala/$package$/AkkaQuickstart.scala) { #create-actors }
  
