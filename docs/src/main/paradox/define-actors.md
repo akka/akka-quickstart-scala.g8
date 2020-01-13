@@ -7,7 +7,7 @@ The Hello World Actors use three different messages:
 
 * `Greet`: command sent to the `Greeter` actor to greet
 * `Greeted`: reply from the `Greeter` actor to confirm the greeting has happened
-* `Start`: command to the `GreeterMain` to start the greeting process
+* `SayHello`: command to the `GreeterMain` to start the greeting process
 
 When defining Actors and their messages, keep these recommendations in mind:
 
