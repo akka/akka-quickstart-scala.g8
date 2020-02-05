@@ -21,8 +21,8 @@ script:
   - sbt -Dfile.encoding=UTF8 -J-XX:ReservedCodeCacheSize=256M test docs/paradox
 
   # Tricks to avoid unnecessary cache updates
-  - find $HOME/.sbt -name "*.lock" | xargs rm
-  - find $HOME/.ivy2 -name "ivydata-*.properties" | xargs rm
+  - find $HOME/.sbt -name "*.lock" | xargs rm || true
+  - find $HOME/.ivy2 -name "ivydata-*.properties" | xargs rm || true
 
 env:
   global:
