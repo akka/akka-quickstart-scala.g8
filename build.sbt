@@ -16,3 +16,4 @@ lazy val root = (project in file("."))
 //    open docs/target/paradox/site/main/index.html
 lazy val docs = (project in file("docs"))
   .enablePlugins(ParadoxPlugin)
+  .disablePlugins(Giter8Plugin)
