@@ -13,6 +13,7 @@ install: jabba use "$TRAVIS_JDK" && java -Xmx32m -version
 cache:
   directories:
     - $HOME/.ivy2/cache
+    - $HOME/.cache/coursier
     - $HOME/.sbt
     - $HOME/.jabba/jdk
 
