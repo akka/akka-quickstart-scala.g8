@@ -2,8 +2,8 @@
 package $package$
 
 import akka.actor.testkit.typed.scaladsl.ScalaTestWithActorTestKit
-import com.example.Greeter.Greet
-import com.example.Greeter.Greeted
+import $package$.Greeter.Greet
+import $package$.Greeter.Greeted
 import org.scalatest.WordSpecLike
 
 //#definition

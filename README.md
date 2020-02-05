@@ -16,7 +16,7 @@ Prerequisites:
 
 Open a console and run the following command to apply this template:
  ```
-sbt -Dsbt.version=0.13.17 new akka/akka-quickstart-scala.g8
+sbt -Dsbt.version=1.3.6 new akka/akka-quickstart-scala.g8
  ```
 
 This template will prompt for the name of the project. Press `Enter` if the default values suit you.
@@ -28,7 +28,7 @@ sbt run
 
 ## Template license
 
-Written in 2017 by Lightbend, Inc.
+Written in 2019 by Lightbend, Inc.
 
 To the extent possible under law, the author(s) have dedicated all copyright and related
 and neighboring rights to this template to the public domain worldwide.
