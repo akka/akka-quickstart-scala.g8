@@ -17,7 +17,7 @@ An `ActorSystem` is the intial entry point into Akka, usually only one is create
 An `ActorSystem` has a name and a guardian actor. The bootstrap of your application is typically 
 done within the guardian actor.
 
-The Hello work guardian actor is `GreeterMain`.
+The Hello World guardian actor is `GreeterMain`.
 
 @@snip [AkkaQuickstart.scala](/src/main/g8/src/main/scala/$package$/AkkaQuickstart.scala) { #actor-system }
 
