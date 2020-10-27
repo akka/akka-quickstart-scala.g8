@@ -6,6 +6,9 @@ This example is described in the [Akka Quickstart with Scala guide](https://deve
 
 The Hello World example illustrates Akka basics. Within 30 minutes, you should be able to download and run the example and use this guide to understand how the example is constructed. This will get your feet wet, and hopefully inspire you to dive deeper into the wonderful sea of Akka!
 
+
+test
+
 ## Giter8 template
 
 It can also be used as a [Giter8][g8] template for Akka with Scala.
