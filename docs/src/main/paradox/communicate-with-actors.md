@@ -15,7 +15,7 @@ For example, the main class of Hello World sends messages to the `GreeterMain` A
  
 @@snip [AkkaQuickstart.scala](/src/main/g8/src/main/scala/$package$/AkkaQuickstart.scala) { #main-send-messages }
  
-The `Greeter` Actor also sends a message to confirm it has done the greeting:
+The `Greeter` Actor also sends a message to acknowledge it has received the greeting:
  
 @@snip [AkkaQuickstart.scala](/src/main/g8/src/main/scala/$package$/AkkaQuickstart.scala) { #greeter-send-messages }
  
