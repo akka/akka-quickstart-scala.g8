@@ -13,15 +13,13 @@ If needed, the runtime can optimize the system by changing an Actor's location o
  
 ### The Akka ActorSystem
 
-An `ActorSystem` is the intial entry point into Akka, usually only one is created per application.
-An `ActorSystem` has a name and a guardian actor. The bootstrap of your application is typically 
-done within the guardian actor.
+An `ActorSystem` is the intial entry point into Akka. Usually only one `ActorSystem` is created per application. An `ActorSystem` has a name and a guardian actor. The bootstrap of your application is typically done within the guardian actor.
 
-The Hello World guardian actor is `GreeterMain`.
+The guardian actor of this `ActorSystem` is `GreeterMain`.
 
 @@snip [AkkaQuickstart.scala](/src/main/g8/src/main/scala/$package$/AkkaQuickstart.scala) { #actor-system }
 
-It uses `Behaviors.setup` to bootstrap the application
+It uses `Behaviors.setup` to bootstrap the application.
 
 @@snip [AkkaQuickstart.scala](/src/main/g8/src/main/scala/$package$/AkkaQuickstart.scala) { #greeter-main }
 
