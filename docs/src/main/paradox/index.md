@@ -17,8 +17,7 @@ The Hello World example for Scala is a zipped project that includes a distributi
 
 Download and unzip the example:
 
-1. Download the zip file from [Lightbend Tech Hub](https://developer.lightbend.com/start/?group=akka&project=akka-quickstart-scala) by clicking `CREATE A PROJECT FOR ME`. 
-1. Extract the zip file to a convenient location: 
+1. Download and extract the [zip file](https://example.lightbend.com/v1/download/akka-quickstart-scala?name=akka-quickstart-scala) to a convenient location: 
   - On Linux and OSX systems, open a terminal and use the command `unzip akka-quickstart-scala.zip`. Note: On OSX, if you unzip using Archiver, you also have to make the sbt files executable:
 ```
  $ chmod u+x ./sbt
