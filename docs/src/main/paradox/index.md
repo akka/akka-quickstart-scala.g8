@@ -20,8 +20,8 @@ Download and unzip the example:
 1. Download and extract the [zip file](https://example.lightbend.com/v1/download/akka-quickstart-scala?name=akka-quickstart-scala) to a convenient location: 
   - On Linux and OSX systems, open a terminal and use the command `unzip akka-quickstart-scala.zip`. Note: On OSX, if you unzip using Archiver, you also have to make the sbt files executable:
 ```
- $ chmod u+x ./sbt
- $ chmod u+x ./sbt-dist/bin/sbt
+$ chmod u+x ./sbt
+$ chmod u+x ./sbt-dist/bin/sbt
 ```
   - On Windows, use a tool such as File Explorer to extract the project. 
 
@@ -65,8 +65,8 @@ Congratulations, you just ran your first Akka app. Now take a look at what happe
 
 The example consists of three actors:
 
-* Greet: Receives commands to `Greet` someone and responds with a `Greeted` to confirm the greeting has taken place
-* GreeterBot: receives the reply from the Greeter and sends a number of additional greeting messages and collect the replies until a given max number of messages have been reached.
+* Greeter: Receives commands to `Greet` someone and responds with a `Greeted` reply to confirm the greeting has taken place
+* GreeterBot: Receives the reply from the Greeter and sends a number of additional greeting messages and collect the replies until a given max number of messages have been reached.
 * GreeterMain: The guardian actor that bootstraps everything
 
 ## Benefits of using the Actor Model
