@@ -65,9 +65,9 @@ Congratulations, you just ran your first Akka app. Now take a look at what happe
 
 The example consists of three actors:
 
-* Greeter: Receives commands to `Greet` someone and responds with a `Greeted` reply to confirm the greeting has taken place
-* GreeterBot: Receives the reply from the Greeter and sends a number of additional greeting messages and collect the replies until a given max number of messages have been reached.
-* GreeterMain: The guardian actor that bootstraps everything
+* Greeter: Receives commands to `Greet` someone and responds with a `Greeted` reply to confirm the greeting has taken place.
+* GreeterBot: Receives the reply from the Greeter and sends a number of additional greeting messages and collects the replies until a given max number of messages has been reached.
+* GreeterMain: The guardian actor that bootstraps everything.
 
 ## Benefits of using the Actor Model
 

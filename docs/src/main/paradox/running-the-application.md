@@ -16,12 +16,10 @@ This build file is very simple. In essence, it creates one project `hello-akka-s
 
 Just as you did earlier, run the application from a console:
 
-1. Enter `./sbt` on OSX/Linux or `sbt.bat` on Windows 
-
+1. Enter `./sbt` on OSX/Linux or `sbt.bat` on Windows  
    sbt downloads project dependencies. The `>` prompt indicates sbt has started in interactive mode.
 
-1. At the sbt prompt, enter `reStart`.
-   
+1. At the sbt prompt, enter `reStart`.  
    The output should look _something_ like this (scroll all the way to the right to see the Actor output):
 
 ```
@@ -41,7 +39,7 @@ Just as you did earlier, run the application from a console:
 ```
  
 Remember that the implementation of the `Greeter` Actor used the logger from the `ActorContext`? 
-This provides a lot of extra information. For example, the log output contains includes the time and name of the object the behavior was defined. 
+This provides a lot of extra information. For example, the log output includes the time and name of the object for which the behavior was defined. 
  
 To run the tests, enter `test` at the sbt prompt.
  

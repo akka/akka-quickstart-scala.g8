@@ -17,9 +17,9 @@ When defining Actors and their messages, keep these recommendations in mind:
 
 * It is a good practice to put an actor's associated messages in its object. This makes it easier to understand what type of messages the actor expects and handles. 
 
-* It is a good practice obtain an actor's initial behavior in the object's apply method
+* It is a good practice obtain an actor's initial behavior in the object's apply method.
 
-Lets see how the objects and Behavior implementations for `Greeter`, `GreeterBot` and `GreeterMain` demonstrate these best practices. 
+Let's see how the objects and Behavior implementations for `Greeter`, `GreeterBot` and `GreeterMain` demonstrate these best practices. 
 
 ### The Greeter actor
 
@@ -40,7 +40,7 @@ case we don't need to update any state, so we return `Behaviors.same`, which mea
 the next behavior is "the same as the current one".
 
 The type of the messages handled by this behavior is declared to be of class
-`Greet`, meaning that `message` argument is also typed as such.
+`Greet`, meaning that the `message` argument is also typed as such.
 This is why we can access the `whom` and `replyTo` members without needing to use a pattern match.
 Typically, an actor handles more than one specific message type and then there
 is one common trait that all messages that the
@@ -71,8 +71,7 @@ message at a time.
 
 ### The Greeter main actor
 
-A third actor spawns the `Greeter` and the `GreeterBot` and starts the interaction, creating actors
-and what `spawn` does is discussed next.
+A third actor spawns the `Greeter` and the `GreeterBot` and starts the interaction, creating actors. What `spawn` does is discussed next.
 
 @@snip [AkkaQuickstart.scala](/src/main/g8/src/main/scala/$package$/AkkaQuickstart.scala) { #greeter-main }
 

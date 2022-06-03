@@ -8,7 +8,7 @@ Open IntelliJ and select `File -> Open...` and point to the directory where you 
 
 ![IntelliJ](images/intellij-open-project.png)
 
-Fill out the settings according to the above and press `OK` to import the project. When IntelliJ will warn about missing Scala SDK it is only to follow the instructions to add support.
+Fill out the settings according to the above and press `OK` to import the project. When IntelliJ warns about there being "No Scala SDK in module", simply click on the "Setup Scala SDK" link to add support.
 
 ### Inspecting project code
 
@@ -20,8 +20,8 @@ For testing we simply right click on the file `src/test/scala/$package$/AkkaQuic
 
 ![IntelliJ](images/intellij-test-output.png)
 
-Similarly to run the application we right click on the file `src/main/scala/$package$/AkkaQuickstart.scala` and select `Run 'AkkaQuickstart'`:
+Similarly, to run the application we right click on the file `src/main/scala/$package$/AkkaQuickstart.scala` and select `Run 'AkkaQuickstart'`:
 
 ![IntelliJ](images/intellij-run-output.png)
 
-For more detailed information about please see the @ref:[running the application](running-the-application.md) section.
+For more detailed information, please see the @ref:[running the application](running-the-application.md) section.
