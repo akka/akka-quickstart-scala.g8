@@ -9,7 +9,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        SCALA_VERSION: [ 2.12.17, 2.13.10 ]
+        SCALA_VERSION: [ 2.12.x, 2.13.x ]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
