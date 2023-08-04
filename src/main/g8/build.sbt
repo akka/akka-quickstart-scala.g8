@@ -12,6 +12,8 @@ lazy val akkaVersion = "$akka_version$"
 // sbt tasks, consider https://github.com/spray/sbt-revolver/
 fork := true
 
+resolvers += "Akka library repository".at("https://repo.akka.io/maven")
+
 libraryDependencies ++= Seq(
   "com.typesafe.akka" %% "akka-actor-typed" % akkaVersion,
   "ch.qos.logback" % "logback-classic" % "1.2.11",
