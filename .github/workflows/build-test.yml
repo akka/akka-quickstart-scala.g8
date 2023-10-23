@@ -33,4 +33,4 @@ jobs:
 
       - name: generate and test, Scala 3
         run: |-
-          sbt new file://$PWD --name=hello-world --scala_version=3.3.1 --force && pushd hello-world-grpc &&  sbt test
+          sbt new file://$PWD --name=hello-world --scala_version=3.3.1 --force && pushd hello-world &&  sbt test
