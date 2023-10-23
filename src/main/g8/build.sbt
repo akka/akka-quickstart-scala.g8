@@ -2,7 +2,7 @@ name := "$name$"
 
 version := "1.0"
 
-scalaVersion := "2.13.1"
+scalaVersion := s"$scala_version$"
 
 resolvers += "Akka library repository".at("https://repo.akka.io/maven")
 
