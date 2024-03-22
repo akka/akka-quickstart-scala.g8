@@ -37,3 +37,11 @@ This template is distributed without any warranty. See <http://creativecommons.o
 [g8]: http://www.foundweekends.org/giter8/
 [sbt]: http://www.scala-sbt.org/
 [sbt_download]: http://www.scala-sbt.org/download.html
+
+The Akka family of projects is managed by teams at [Lightbend](https://lightbend.com) with help from the community.
+
+---
+
+## License
+
+Akka is licensed under the Business Source License 1.1, please see the [Akka License FAQ](https://www.lightbend.com/akka/license-faq).
