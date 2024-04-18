@@ -38,7 +38,7 @@ jobs:
 
       - name: generate and test, Scala 2.13
         # This runs the template with the default parameters, and runs test within the templated app.
-        run: sbt -Dfile.encoding=UTF8 -J-XX:ReservedCodeCacheSize=256M test docs/paradox
+        run: sbt -Dfile.encoding=UTF8 -J-XX:ReservedCodeCacheSize=256M test
 
       - name: generate and test, Scala 3
         run: |-
