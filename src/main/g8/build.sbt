@@ -4,7 +4,7 @@ version := "1.0"
 
 scalaVersion := s"$scala_version$"
 
-resolvers += "Akka library repository".at("https://repo.akka.io/maven")
+resolvers += "Akka library repository".at("https://repo.akka.io/maven/github_actions")
 
 lazy val akkaVersion = "$akka_version$"
 
