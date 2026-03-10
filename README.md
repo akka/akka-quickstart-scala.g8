@@ -26,6 +26,13 @@ Once inside the project folder, run the application with:
 sbt run
 ```
 
+## Build Token
+
+To build locally, you need to fetch a token at https://account.akka.io/token that you have to place into `~/.sbt/1.0/akka-commercial.sbt` file like this:
+```
+ThisBuild / resolvers += "lightbend-akka".at("your token resolver here")
+```
+
 ## Template license
 
 Written in 2019 by Lightbend, Inc.
