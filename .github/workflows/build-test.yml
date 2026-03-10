@@ -40,7 +40,6 @@ jobs:
         uses: akka/github-actions-scripts/setup_global_resolver@main
 
       - name: Docs
-        # This runs the template with the default parameters, and runs test within the templated app.
         run: sbt docs/paradox
 
       - name: generate and test, Scala 2.13
