@@ -39,10 +39,15 @@ jobs:
       - name: Run akka/github-actions-scripts
         uses: akka/github-actions-scripts/setup_global_resolver@main
 
+      - name: Docs
+        # This runs the template with the default parameters, and runs test within the templated app.
+        run: sbt docs/paradox
+
       - name: generate and test, Scala 2.13
         # This runs the template with the default parameters, and runs test within the templated app.
-        run: sbt -Dfile.encoding=UTF8 -J-XX:ReservedCodeCacheSize=256M test docs/paradox
+        run: |-
+          sbt new file://$PWD --name=hello-world --scala_version=2.13.18 --force && pushd hello-world && sbt test
 
       - name: generate and test, Scala 3
         run: |-
-          sbt new file://$PWD --name=hello-world --scala_version=3.3.1 --force && pushd hello-world &&  sbt test
+          sbt new file://$PWD --name=hello-world --scala_version=3.3.1 --force && pushd hello-world && sbt test
